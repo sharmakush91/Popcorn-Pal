@@ -20,12 +20,32 @@ const dummyMovies = [
     release_date: "2010-07-16",
   },
 ];
+const token = import.meta.env.VITE_TMDB_V4_API_TOKEN;
 
 function App() {
   const [query, setQuery] = useState("");
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    console.log("Token:", token);
+    try {
+      const res = await fetch(
+        "https://api.themoviedb.org/3/movie/1175942?language=en-US",
+        options
+      );
+      const data = await res.json();
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return (
