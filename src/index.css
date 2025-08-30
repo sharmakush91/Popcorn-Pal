@@ -1,0 +1,10 @@
+body {
+  margin: 0; /* remove default margin */
+  min-height: 100vh; /* ensure it covers full height */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1950&q=80")
+      no-repeat center center;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: #fff; /* default text color */
+}

@@ -1,29 +1,12 @@
-import "./App.css";
 import MovieCard from "./components/MovieCard";
 import { useState } from "react";
-
-const dummyMovies = [
-  {
-    id: 1,
-    title: "Avengers: Endgame",
-    poster_path:
-      "https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
-    vote_average: 8.4,
-    release_date: "2019-04-24",
-  },
-  {
-    id: 2,
-    title: "Inception",
-    poster_path:
-      "https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg",
-    vote_average: 8.8,
-    release_date: "2010-07-16",
-  },
-];
+import styles from "./App.module.css";
+import logo from "./Images/logo.png";
 const token = import.meta.env.VITE_TMDB_V4_API_TOKEN;
 
 function App() {
   const [query, setQuery] = useState("");
+  const [movie, setMovie] = useState([]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -35,13 +18,15 @@ function App() {
         Authorization: `Bearer ${token}`,
       },
     };
-    console.log("Token:", token);
+
     try {
       const res = await fetch(
-        "https://api.themoviedb.org/3/movie/1175942?language=en-US",
+        `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=${query}`,
         options
       );
       const data = await res.json();
+      setMovie(data.results || []);
+
       console.log(data);
     } catch (err) {
       console.error(err);
@@ -50,17 +35,17 @@ function App() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Popcorn Pal 🍿</h1>
+      <form onSubmit={handleSubmit} className={styles.button}>
+        <img src={logo} alt="Popcorn Pal 🍿" />
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search Movies..."
         ></input>
-        <button type="submit">Search..</button>
-        <div>
-          {dummyMovies.map((movie) => (
+        <button type="submit">Search</button>
+        <div className={styles.appContainer}>
+          {movie.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
         </div>
