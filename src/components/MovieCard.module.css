@@ -2,32 +2,58 @@
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-}
-
-.card {
-  border: 2px solid #2c3e50;
-  border-radius: 12px;
+  border: 1px solid #2c3e50;
   padding: 5px;
-  background-color: rgba(255, 255, 255, 0.8);
+
+  /* NEW: Fix size for consistency */
+  width: 100%;
+  height: 450px; /* consistent card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #000; /* fallback if image fails */
 }
 
+/* Apply consistent sizing to images */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
 .card:hover img {
   transform: scale(1.05);
+  cursor: pointer;
 }
 
 .overlay {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 10px;
-  text-align: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35); /* slightly stronger for readability */
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-family: "Inter", sans-serif; /* Professional font */
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); /* subtle text lift */
 }
 
 .card:hover .overlay {
   opacity: 1;
+  transform: translateY(0);
 }

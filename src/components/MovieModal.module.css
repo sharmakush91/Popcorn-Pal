@@ -1,0 +1,25 @@
+.modalOverlay {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: var(--backdrop-image);
+}
+
+.modalBox {
+  max-width: 600px;
+  padding: 20px 30px;
+}
+
+.modalButton {
+  color: black;
+  width: 30px;
+  padding: 10px;
+}
