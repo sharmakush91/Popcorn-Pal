@@ -7,6 +7,28 @@
   gap: 20px;
 }
 
+.homeButton {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px 18px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 2px solid bisque;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.HomeButton:hover {
+  background-color: bisque;
+  color: #000;
+  transform: scale(1.05);
+}
+
 form {
   display: flex;
   flex-direction: column;

@@ -6,7 +6,7 @@ function MovieCard({ movie }) {
   const navigate = useNavigate();
 
   function navOnClick() {
-    navigate(`/${movie.media_type}/${movie.id}`);
+    navigate(`/${movie.media_type}/${movie.id}`, {});
   }
 
   return (

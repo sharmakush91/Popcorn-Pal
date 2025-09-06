@@ -4,7 +4,7 @@ import styles from "./MovieModal.module.css";
 
 const token = import.meta.env.VITE_TMDB_V4_API_TOKEN;
 
-function MovieModal({ onClose }) {
+function MovieModal() {
   const { id, media_type } = useParams();
   const [movie, setMovie] = useState(null);
   const navigate = useNavigate();
@@ -22,11 +22,11 @@ function MovieModal({ onClose }) {
       };
 
       try {
-        const res = await fetch(
+        const res1 = await fetch(
           `https://api.themoviedb.org/3/${media_type}/${id}?language=en-US`,
           options
         );
-        const data = await res.json();
+        const data = await res1.json();
         setMovie(data);
       } catch (err) {
         console.error(err);
@@ -36,13 +36,20 @@ function MovieModal({ onClose }) {
     fetchDetails();
   }, [id, media_type]);
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden"; // disable scroll
+
+    return () => {
+      document.body.style.overflow = "auto"; // enable scroll on cleanup/unmount
+    };
+  }, []);
+
   if (!movie) return null;
 
-  const backdropUrl = `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`;
+  const backdropUrl = `https://image.tmdb.org/t/p/w780${movie.backdrop_path}`;
 
   const handleClose = () => {
-    onClose();
-    navigate(-1); // Go back in history when modal closes
+    navigate(-1);
   };
 
   return (
@@ -50,14 +57,18 @@ function MovieModal({ onClose }) {
       className={styles.modalOverlay}
       style={{ "--backdrop-image": `url(${backdropUrl})` }}
     >
-      <button className={styles.modalButton} onClick={handleClose}>
-        X
-      </button>
       <div className={styles.modalBox}>
-        <h1>{movie.title || movie.name}</h1>
-        <h3>Rating: {movie.vote_average}</h3>
-        <h3>Language: {movie.original_language}</h3>
-        <p>{movie.overview}</p>
+        <button className={styles.modalButton} onClick={handleClose}>
+          X
+        </button>
+        <div className={styles.modalText}>
+          <h1>{movie.title || movie.name}</h1>
+          <h3>Release date: {movie.release_date}</h3>
+          <h3>Runtime: {movie.runtime} Minutes</h3>
+          <h3>Language: {movie.original_language.toUpperCase()}</h3>
+          <p>{movie.overview}</p>
+          {console.log(movie)}
+        </div>
       </div>
     </div>
   );
