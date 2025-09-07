@@ -86,8 +86,26 @@ form button:hover {
 }
 
 /* For mobile */
+
 @media (max-width: 600px) {
   .appContainer {
     grid-template-columns: 1fr; /* 1 column */
+  }
+  form {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  form input {
+    width: 100%;
+  }
+
+  form button {
+    width: 100%;
+  }
+
+  .homeButton {
+    font-size: 14px;
+    padding: 8px 12px;
   }
 }

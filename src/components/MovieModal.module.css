@@ -77,3 +77,29 @@
   height: 60px;
   border-radius: 10px;
 }
+
+@media (max-width: 768px) {
+  .modalBox {
+    width: 90vw;
+    height: 85vh;
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .modalButton {
+    top: 8px;
+    right: 16px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  .providerLogo img {
+    height: 40px;
+  }
+
+  .modalText {
+    padding: 10px;
+    top: auto;
+    position: relative;
+  }
+}
