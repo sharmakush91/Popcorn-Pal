@@ -81,7 +81,7 @@
 @media (max-width: 768px) {
   .modalBox {
     width: 90vw;
-    height: 85vh;
+    height: 70vh;
     padding: 16px;
     font-size: 14px;
   }
@@ -99,7 +99,9 @@
 
   .modalText {
     padding: 10px;
-    top: auto;
     position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-sizing: border-box;
   }
 }

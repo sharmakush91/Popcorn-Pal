@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 
 .appContainer {
   display: grid;
@@ -23,7 +22,7 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.HomeButton:hover {
+.homeButton:hover {
   background-color: bisque;
   color: #000;
   transform: scale(1.05);
@@ -89,23 +88,50 @@ form button:hover {
 
 @media (max-width: 600px) {
   .appContainer {
-    grid-template-columns: 1fr; /* 1 column */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   form {
     width: 100%;
     padding: 0 10px;
+    gap: 6px;
+    margin-bottom: 15px;
   }
 
   form input {
+    width: 70%;
+  }
+
+  form img {
+    margin-top: 30px;
     width: 100%;
+    max-width: 350px;
+    height: auto;
   }
 
   form button {
-    width: 100%;
+    width: 30%;
   }
 
   .homeButton {
-    font-size: 14px;
-    padding: 8px 12px;
+    font-size: 8px;
+    padding: 8px 10px;
+    width: 50px;
   }
+  .homeButton:hover {
+    background-color: inherit;
+    color: inherit;
+    transform: none;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

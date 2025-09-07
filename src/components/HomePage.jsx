@@ -74,7 +74,7 @@ function HomePage() {
             ))}
         </div>
 
-        {movie.length > 0 && (
+        {movie.length > 1 && (
           <button onClick={() => setPage(page + 1)}>Load More</button>
         )}
       </form>
