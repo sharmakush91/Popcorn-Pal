@@ -73,7 +73,10 @@ function HomePage() {
               />
             ))}
         </div>
-        <button onClick={() => setPage(page + 1)}>Load More</button>
+
+        {movie.length > 0 && (
+          <button onClick={() => setPage(page + 1)}>Load More</button>
+        )}
       </form>
       <Outlet />
     </div>
