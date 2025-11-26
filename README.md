@@ -1,12 +1,58 @@
-# React + Vite
+# Popcorn Pal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Demo:** https://popcorn-pal1.netlify.app/
 
-Currently, two official plugins are available:
+Popcorn Pal is a responsive movie and TV discovery app that lets users explore titles, view detailed information, and check where each movie or show is available to stream. Built with **React**, **Vite**, **CSS Modules**, and the **TMDB API**, the project highlights modern front-end development techniques including API integration, routing, state management, and component-driven design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+##  Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Search for movies and TV shows using TMDB  
+- View detailed information: synopsis, genres, ratings, release date  
+- See streaming availability (“Where to Watch”)  
+- Smooth navigation with client-side routing  
+- Fully responsive layout built with CSS Modules  
+- Reusable components and clean architecture
+
+---
+
+## Live Demo
+
+**https://popcorn-pal1.netlify.app/**
+
+---
+
+## Tech Stack
+
+- **React**  
+- **Vite**  
+- **CSS Modules**  
+- **TMDB API**  
+- **React Router**
+
+---
+
+## Running Locally
+
+1. Clone the repo:
+
+git clone https://github.com/your-username/popcorn-pal.git
+cd popcorn-pal
+
+2. Install dependencies:
+npm install
+
+3. Create a .env file in the project root:
+VITE_TMDB_API_KEY=your_api_key_here
+The API key is not included in the repository for security reasons.
+You can generate a free API key at https://developer.themoviedb.org/.
+
+4. Start the development server:
+npm run dev
+
+5. Build for Production
+npm run build
+
+## Acknowledgements
+Data provided by TMDB API
