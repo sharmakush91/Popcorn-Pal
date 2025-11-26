@@ -35,23 +35,23 @@ Popcorn Pal is a responsive movie and TV discovery app that lets users explore t
 
 ## Running Locally
 
-1. Clone the repo:
+-Clone the repo:
 
 git clone https://github.com/your-username/popcorn-pal.git
 cd popcorn-pal
 
-2. Install dependencies:
+-Install dependencies:
 npm install
 
-3. Create a .env file in the project root:
+-Create a .env file in the project root:
 VITE_TMDB_API_KEY=your_api_key_here
 The API key is not included in the repository for security reasons.
 You can generate a free API key at https://developer.themoviedb.org/.
 
-4. Start the development server:
+-Start the development server:
 npm run dev
 
-5. Build for Production
+-Build for Production
 npm run build
 
 ## Acknowledgements
