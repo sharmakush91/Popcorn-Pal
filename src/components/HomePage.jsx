@@ -4,7 +4,8 @@ import MovieCard from "./MovieCard";
 import styles from "./HomePage.module.css";
 import logo from "../Images/logo.png";
 
-const token = import.meta.env.VITE_TMDB_API_KEY;
+// ✅ Use V3 key here
+const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
 function HomePage() {
   const [query, setQuery] = useState("");
@@ -12,19 +13,11 @@ function HomePage() {
   const [page, setPage] = useState(1);
 
   async function fetchPages(page) {
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/search/multi?include_adult=false&language=en-US&query=${query}&page=${page}`,
-        options,
+        `https://api.themoviedb.org/3/search/multi?include_adult=false&language=en-US&query=${query}&page=${page}&api_key=${apiKey}`,
       );
+
       const data = await res.json();
 
       if (page === 1) {
@@ -41,6 +34,7 @@ function HomePage() {
     e.preventDefault();
     fetchPages(page);
   }
+
   const navigate = useNavigate();
   function returnHome() {
     setMovie([]);
@@ -54,15 +48,19 @@ function HomePage() {
       <button className={styles.homeButton} onClick={returnHome}>
         Home
       </button>
+
       <form onSubmit={handleSubmit} className={styles.button}>
         <img src={logo} alt="Popcorn Pal 🍿" />
+
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search your favourite Movies/TV series..."
         />
+
         <button type="submit">Search</button>
+
         <div className={styles.appContainer}>
           {movie
             .filter((movie) => movie.poster_path)
@@ -78,6 +76,7 @@ function HomePage() {
           <button onClick={() => setPage(page + 1)}>Load More</button>
         )}
       </form>
+
       <Outlet />
     </div>
   );
