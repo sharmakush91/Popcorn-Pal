@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard";
 import styles from "./HomePage.module.css";
 import logo from "../Images/logo.png";
 
-const token = import.meta.env.VITE_TMDB_V4_API_TOKEN;
+const token = import.meta.env.VITE_TMDB_API_KEY;
 
 function HomePage() {
   const [query, setQuery] = useState("");
@@ -22,8 +22,8 @@ function HomePage() {
 
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/search/multi?include_adult=false&language=en-US&page=1&query=${query}&page=${page}`,
-        options
+        `https://api.themoviedb.org/3/search/multi?include_adult=false&language=en-US&query=${query}&page=${page}`,
+        options,
       );
       const data = await res.json();
 
